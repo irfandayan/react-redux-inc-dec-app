@@ -5,8 +5,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { incNumber, decNumber } from './actions';
 
 const App = () => {
+  // subscribe to state
   const myState = useSelector((state) => state.changeTheNumber);
+
   const dispatch = useDispatch();
+
   return (
     <>
       <div className="main-div">
@@ -31,7 +34,11 @@ const App = () => {
             <a
               className="quantity__plus"
               title="Increment"
-              onClick={() => dispatch(incNumber())}
+              onClick={() =>
+                dispatch({
+                  type: 'INCREMENT',
+                })
+              }
             >
               <span style={{ cursor: 'pointer' }}>+</span>
             </a>
